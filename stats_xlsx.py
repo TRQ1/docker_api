@@ -109,5 +109,14 @@ if __name__ == '__main__':
         columns = rows.split()
         for col_inx, col in enumerate(columns):
             worksheet.write(0, col_inx, col)
-
+         merge_format = workbook.add_format({"bold": 1, "align": "center"})
+        
+        worksheet.merge_range("A1:B1", "CONTAINER_ID", merge_format)
+        worksheet.merge_range("C1:D1", "CPU %", merge_format)
+        worksheet.merge_range("E1:H1", "MEM USAGE / LIMIT", merge_format)
+        worksheet.merge_range("I1:J1", "MEM %", merge_format)
+        worksheet.merge_range("K1:L1", "NET I/O", merge_format)
+        worksheet.merge_range("M1:N1", "BLOCK I/O", merge_format)
+        worksheet.merge_range("O1:S1", "PIDS", merge_format)
+        
         workbook.close()
